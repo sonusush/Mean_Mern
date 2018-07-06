@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<script src="angular.min.js">
+
+		</script>
+		</head>
+		<body>
+		<div ng-App="" ng-init="qty=0;price=0">
+		ItemName:<input type="text" ng-model="itemName"/><br>
+		Quantity:<input type="text" ng-model="qty"/><br>
+		Price:   <input type="text" ng-model="price"/><br>
+		Total:   <input type="text" ng-model="qty * price|currency">
+		
+		</div>
+		</body>
+		</html>

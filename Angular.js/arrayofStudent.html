@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="angular.min.js">
+</script>
+<script>
+var app=angular.module("myApp",[]);
+app.controller("myctrl",function($scope){
+	var average1;
+	var average2;
+
+	$scope.students=[{
+		name:'smitha',subjects:[{name:'mvc',marks:65},
+								{name:'c#',marks:45},
+								{name:'asp.net',marks:75}],
+		Total:function()
+		{
+			sum=0;
+			for(var i=0;i<$scope.students[0].subjects.length;i++)
+			{
+				sum=sum+$scope.students[0].subjects[i].marks;
+
+			}
+			return sum;
+		},
+
+
+		Average:function()
+			{
+				average1=($scope.students[0].Total()/$scope.students[0].subjects.length);
+				return average1;
+			}
+
+	},{
+	name:'rajitha',subjects:[{name:'mvc',marks:35},
+								{name:'java',marks:85},
+							{name:'ado.net',marks:95}],
+	
+
+		Total:function()
+		{
+			sum=0;
+			for(var i=0;i<$scope.students[1].subjects.length;i++)
+			{
+				sum=sum+$scope.students[1].subjects[i].marks;
+
+			}
+			return sum;
+		},
+		Average:function()
+			{
+				average2=($scope.students[1].Total()/$scope.students[1].subjects.length)
+				return average2;
+			}
+}]
+
+
+$scope.comparision=function()
+{
+	if(average1>=average2)
+	{
+		return average1;
+	}
+	else
+	{
+		return average2;
+	}
+}
+
+
+
+
+
+});
+</script>
+<body>
+<div ng-App="myApp" ng-controller="myctrl">
+<table border="1">
+<tr>
+<th>StudentName1:</th>
+<td>
+{{students[0].name}}
+</td>
+<th>studentsubjects:</th>
+<td ng-repeat="subject in students[0].subjects">
+{{subject.name}}</td>
+
+
+
+</tr>
+
+
+<tr>
+<th>StudentName2:</th>
+<td>
+{{students[1].name}}
+</td>
+<th>studentsubjects:</th>
+<td ng-repeat="subject in students[1].subjects">
+{{subject.name}}</td>
+
+</tr>
+</table>
+
+<p ng-repeat="student in students">
+Total:{{student.Total()}}
+Avg:{{student.Average()}}</p>
+
+highest avg:{{comparision()}}
+
+
+
+
+

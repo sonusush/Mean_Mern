@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="angular.min.js"></script>
+<script>
+var app = angular.module('filters', []);
+
+app.filter('ordinal', function(){
+  return function(number){
+   if(number%100==12||number%100==13)
+   {
+   	return  number+'th'
+   }
+    else{
+      var digit = number % 10;
+      if(digit === 1){
+        return number + 'st'
+      }
+      else if(digit === 2){
+        return number + 'nd'
+      } else if (digit === 3){
+        return number + 'rd'
+      }
+     
+       else if (digit > 3||digit === 0){
+        return number + 'th'
+      }}
+    }
+  }
+)
+</script>
+</head>
+   
+	<body ng-app="filters"  >
+<input type="text" ng-model="result">
+      <p> {{result|ordinal}}</p>
+   
+	
+	</body>
+</html>

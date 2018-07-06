@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+<style>
+table, th , td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+</style>
+	<script src="angular.min.js">
+
+		</script>
+		</head>
+		<body ng-App="" ng-init="employees=[{empId:'e101',empName:'Ram',basicpay:10000},
+		{empId:'e102',empName:'ambika', basicpay:20000}]">
+
+
+		<table>
+			<tr>
+				<th>Employee ID</th>  
+				<th>Employee Name</th>  
+				<th> Basic pay</th>
+			</tr>
+			<tr ng-repeat="employee in employees|orderBy:'empName':true">
+
+			<td>{{employee.empId}}</td>
+			<td>{{employee.empName}}</td> 
+			<td>{{employee.basicpay}}</td>
+			</tr>
+
+			
+		</table>
+
+
+		</body>
+		</html>

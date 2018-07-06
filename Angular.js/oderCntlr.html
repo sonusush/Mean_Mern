@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="angular.min.js">
+</script>
+<script type="text/javascript"></script>
+<script>
+
+var app=angular.module('customFilterApp',[]);
+
+app.controller('descendingCtrl',function($scope)
+{
+ $scope.name=["sonu","sushma","ambika","vidya","pruthvi"];
+});
+
+app.filter('orderDesc',function()
+{
+	return function(a,ase)
+	{
+		if(ase==true)
+		{
+		var desc=a.sort().reverse();
+		return desc;
+	    }
+	    else if(ase==false)
+	    {
+	    	var desc=a.sort();
+		    return desc;
+	    }
+	};
+});
+
+</script>
+</head>
+<body ng-app="customFilterApp" ng-controller="descendingCtrl">
+<div ng-repeat="nam in name|orderDesc:false">
+
+<p>
+
+{{nam}}
+	</p>
+	</div>
+
+	</body>
+	</html>

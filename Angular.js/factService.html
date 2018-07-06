@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="angular.min.js"></script>
+<script>
+var app = angular.module('angularCustomApp', []);
+app.controller('customCtrl',function($scope,calcService)
+{
+	$scope.number=function()
+	{
+		return calcService.number($scope.value);
+	}
+});
+
+app.service('calcService', function()
+	{
+		this.number=function(a)
+	
+	{
+		var res=1;
+		for(var i=a;i>0;i--)
+		{
+			var res=res*i;
+		}
+		return res;
+	};
+	});
+
+	</script>
+	</head>
+	<body ng-app="angularCustomApp" ng-controller="customCtrl">
+	Enter the number:<input type="number" ng-model="value"/>
+	<div>
+	<p> factorial :{{number()}} </p>
+	</div>
+	</body>
+	</html>

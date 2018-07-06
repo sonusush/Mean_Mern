@@ -1,0 +1,171 @@
+-------------CUSTOM FILTER--------------
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="angular.min.js">
+</script>
+<script type="text/javascript"></script>
+<script>
+
+var app=angular.module('customFilterApp',[]);
+
+app.controller('customFilterAppController',function($scope) //taking the value from user
+ //and storing in $scope
+{
+ $scope.value=3;//this 3 value is passed as item
+});
+
+app.filter('factorial',function()//custom filter we are writing
+{
+	return function(item)//3 is passing in item
+	{
+		var res=1;
+		for(var i=item;i>0;i--)
+		{
+			var res=res*i;
+		}
+		return res;
+	};
+});
+
+</script>
+</head>
+<body ng-app="customFilterApp" ng-controller="customFilterAppController">
+<p>
+
+	factorial of number is:{{value|factorial}}
+	</p>
+	</body>
+	</html>
+
+-----------split----------
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="angular.min.js">
+</script>
+<script type="text/javascript"></script>
+<script>
+
+var app=angular.module('customFilterApp',[]);
+
+app.controller('customFilterAppController',function($scope)
+{
+ $scope.input="";//input value taken from view to controller
+});
+
+app.filter('split',function()
+{
+	return function(item)
+
+	{
+		return item.split('-').join(' ');
+	};
+});
+
+</script>
+</head>
+<body ng-app="customFilterApp" ng-controller="customFilterAppController">
+<input type="text" ng-model="input"/>//from view passing input value to controller
+<p>
+
+	value:{{input|split}}
+	</p>
+	</body>
+	</html>
+
+---------------orderBy both ascending and decending------------
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="angular.min.js">
+</script>
+<script type="text/javascript"></script>
+<script>
+
+var app=angular.module('customFilterApp',[]);
+
+app.controller('descendingCtrl',function($scope)
+{
+ $scope.name=["sonu","sushma","ambika","vidya","pruthvi"];
+});
+
+app.filter('orderDesc',function()
+{
+	return function(a,ase)
+	{
+		if(ase==true)
+		{
+		var desc=a.sort().reverse();
+		return desc;
+	    }
+	    else if(ase==false)
+	    {
+	    	var desc=a.sort();
+		    return desc;
+	    }
+	};
+});
+
+</script>
+</head>
+<body ng-app="customFilterApp" ng-controller="descendingCtrl">
+<div ng-repeat="nam in name|orderDesc:false">//here i can give ascending also by giving true 
+
+<p>
+
+{{nam}}
+	</p>
+	</div>
+
+	</body>
+	</html>
+
+-------------------services-----------
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="angular.min.js"></script>
+<script>
+var app = angular.module('angularCustomApp', []);
+app.controller('customCtrl',function($scope,calcService)//value from view is passed and stores here
+{
+	$scope.celcius=function()//calling again service function
+	{
+		return calcService.celcius($scope.value);
+	}
+});
+
+app.service('calcService', function()
+	{
+		this.celcius=function(a)//passing scope.value as argument in d means of a
+		{  
+			return a*(5/9);
+		}
+
+	});
+
+	</script>
+	</head>
+	<body ng-app="angularCustomApp" ng-controller="customCtrl">
+	Enter a fahreneit temp:<input type="number" ng-model="value"/>//calling this value in controller
+	<div>
+	<p> celcius is :{{celcius()}} </p>//printing variable here
+	</div>
+	</body>
+	</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="angular.min.js">
+</script>
+<script type="text/javascript"></script>
+<script>
+
+var app=angular.module('customFilterApp',[]);
+
+app.controller('customFilterAppController',function($scope)
+{
+ $scope.value=3;
+});
+
+app.filter('factorial',function()
+{
+	return function(item)
+	{
+		var res=1;
+		for(var i=item;i>0;i--)
+		{
+			var res=res*i;
+		}
+		return res;
+	};
+});
+
+</script>
+</head>
+<body ng-app="customFilterApp" ng-controller="customFilterAppController">
+<p>
+
+	factorial of number is:{{value|factorial}}
+	</p>
+	</body>
+	</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="angular.min.js"></script>
+<script>
+var app = angular.module('angularCustomApp', []);
+app.controller('customCtrl',function($scope,calcService)
+{
+	$scope.celcius=function()
+	{
+		return calcService.celcius($scope.value);
+	}
+});
+
+app.service('calcService', function()
+	{
+		this.celcius=function(a)
+		{ 
+		var convert=(a-32)*(5/9); 
+			return convert;
+		}
+
+	});
+
+	</script>
+	</head>
+	<body ng-app="angularCustomApp" ng-controller="customCtrl">
+	Enter a fahreneit temp:<input type="number" ng-model="value"/>
+	<div>
+	<p> celcius is :{{celcius()}} </p>
+	</div>
+	</body>
+	</html>
