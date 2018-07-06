@@ -1,0 +1,30 @@
+[
+    {
+	"name":"Samsung Galaxy Noteplus",
+	"cost":15000,
+	"avail":"Instock"
+},
+ {
+	"name":"Apple iPhone10",
+	"cost":8000,
+	"avail":"onbackorder"
+},
+ {
+	"name":"Vivi V9",
+	"cost":25000,
+	"avail":"Instock"
+},
+{
+	"name":"Redmi 9",
+	"cost":3000,
+	"avail":"onbackorder"
+}
+]
+
+
+
+	
+
+	
+		
+
