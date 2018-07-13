@@ -1,0 +1,28 @@
+<html>
+	<head>
+	  <title>
+		javascript example
+	  </title>
+	</head>
+
+  <body>
+
+<script>
+
+function factorialNumber(number){
+	var fact=1;
+ 	for(var i=1;i<=number;i++)
+ 	{
+ 		fact*=i;
+ 	}
+ 	return fact;
+
+}
+var number=parseFloat(prompt("enter the number"));
+
+
+var factorial=factorialNumber(number);
+alert(factorial);
+</script>
+</body>
+</html>

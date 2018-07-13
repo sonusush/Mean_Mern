@@ -1,0 +1,29 @@
+<html>
+	<head>
+	  <title>
+		Area and perimeter of triangle
+	  </title>
+	</head>
+
+  <body>
+<script>
+var length;
+var breadth;
+var height;
+length=parseInt(prompt("enter length of triangle"));
+
+breadth=parseInt(prompt("enter breadth of triangle"));
+
+height=parseInt(prompt("enter height of triangle"));
+
+var s=(length+breadth+height)/2;
+var areaoftriangle=parseInt(Math.sqrt(s*(s-length)+(s-breadth)+(s-height)));
+
+
+alert("area of triangle   " +areaoftriangle);
+</script>
+</body>
+</html>
+
+
+

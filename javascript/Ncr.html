@@ -1,0 +1,46 @@
+<html>
+	<head>
+	
+
+	  <title>
+		ncr program
+	  </title>
+	</head>
+	<body>
+		<script>
+		function factorial(number){
+		var fact=1;
+		for(var i=1;i<=number;i++)
+		{
+			fact*=i;
+		}
+		return fact;
+	}
+	function ncr(number,remainder)
+	{
+		var sub=(number-remainder);
+		var res=factorial(sub);
+		return res;
+		
+		
+
+	}
+	var number=parseFloat(prompt("enter the number"));
+	var remainder=parseFloat(prompt("enter the remainder number"));
+
+	
+	var f=factorial(number);
+	var n=ncr(number,remainder);
+	var rem=factorial(remainder);
+
+	var calNcr=(f/(n*rem));
+		
+
+	
+
+	alert("result of ncr is"+calNcr);
+	</script>
+</body>
+</html>
+
+
